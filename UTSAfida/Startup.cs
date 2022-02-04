@@ -61,16 +61,6 @@ namespace UTSAfida
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapAreaControllerRoute(
-                    name:"AreaAdmin",
-                    areaName: "Admin",
-                    pattern:"Admin/{controller=Home}/{action=Indext}/{Id}"
-                    );
-                endpoints.MapAreaControllerRoute(
-                    name:"AreaUser",
-                    areaName: "User",
-                    pattern: "User/{controller=Home}/{action=Index}/{Id}"
-                    );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -16,4 +16,5 @@ namespace UTSAfida.Models
         public Roles Roles { get; set; }
 
     }
+
 }

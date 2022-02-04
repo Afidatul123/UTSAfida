@@ -25,8 +25,10 @@ namespace UTSAfida.Controllers
         [HttpPost]
         public IActionResult Register(User data)
         {
-            var rolenya = _context.Tb_Roles.Where(x => x.Id == "1").FirstOrDefault();
-            data.Roles = rolenya;
+            var deklarrole = _context.Tb_Roles.Where(x => x.Id == "2").FirstOrDefault();
+
+            data.Roles = deklarrole;
+
             _context.Tb_User.Add(data);
             _context.SaveChanges();
 
@@ -80,7 +82,11 @@ namespace UTSAfida.Controllers
 
                     if (cariusername.Roles.Id == "1")
                     {
-                        return RedirectToAction(controllerName: "Admin/Home", actionName: "Index");
+                        return RedirectToAction(controllerName: "Jadwal", actionName: "Index");
+                    }
+                    else if (cariusername.Roles.Id == "2")
+                    {
+                        return RedirectToAction(controllerName: "Home", actionName: "Users");
                     }
                     return RedirectToAction(controllerName: "Home", actionName: "Index");
                 }
@@ -90,7 +96,10 @@ namespace UTSAfida.Controllers
             ViewBag.pesan = "Username tidak terdaftar";
             return View(data);
         }
-    }s
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
         }
     }
 }
