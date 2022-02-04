@@ -1,0 +1,35 @@
+﻿@model User;
+
+@{ 
+    Layout = "_AkunLayout";
+}
+
+<form asp-action="Regis" method="post">
+    <h1>Create Account</h1>
+    <div>
+        <input asp-for="Username" type="text" class="form-control" placeholder="Username" required="" />
+    </div>
+    <div>
+        <input asp-for="Password" type="password" class="form-control" placeholder="Password" required="" />
+    </div>
+    <div>
+        <input asp-for="Nama" type="text" class="form-control" placeholder="Nama" required="" />
+    </div>
+    <div>
+        <input asp-for="Email" type="email" class="form-control" placeholder="Email" required="" />
+    </div>
+   
+    <div>
+        <a class="btn btn-default submit" href="index.html">Submit</a>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="separator">
+        <p class="change_link">
+            Already a member ?
+            <a href="#signin" class="to_register"> Log in </a>
+        </p>
+
+    </div>
+</form>

@@ -1,0 +1,72 @@
+﻿@using UTSAfida.Models
+@model IEnumerable<Jadwal>
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> Simple Table</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.pelatihan)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TglMulai)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TglSelesai)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.pertemuan)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Tutor)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Keterangan)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.pelatihan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TglMulai)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TglSelesai)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.pertemuan)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tutor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Keterangan)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
